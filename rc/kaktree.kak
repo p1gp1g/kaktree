@@ -390,10 +390,9 @@ define-command -hidden kaktree--tab-action %{ evaluate-commands -save-regs 'a' %
         execute-keys -draft '<a-x>s^\h*\Q<c-r>a\E<ret>'
         kaktree--dir-fold
     } catch %{
-        kaktree--tab-open-file
         set-register a %opt{kaktree_file_icon}
         execute-keys -draft '<a-x>s^\h*\Q<c-r>a<ret>'
-        kaktree--file-open %opt{kaktree__jumpclient}
+        kaktree--file-open-nofocus %opt{kaktree__jumpclient}
     } catch %{
         nop
     }
